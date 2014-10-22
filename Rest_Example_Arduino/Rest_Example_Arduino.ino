@@ -16,8 +16,6 @@
 
 #define LIGHTPIN A0
 
-#define CRLF "\r\n"
-
 // Enter a MAC address and IP address for your Arduino below.
 // The IP address will be dependent on your local network:
 byte mac[] = { 0x90, 0xA2, 0xDA, 0x00, 0x68, 0xF8 };
@@ -25,7 +23,7 @@ byte ip[] = { 192, 168, 2, 200 };
 byte gateway[] = { 192, 168, 2, 1 };
 byte subnet[] = { 255, 255, 255, 0 };
 
-// Start a TCP server on port 7999
+// Start a TCP server on port 80
 EthernetServer server(80);
 
 // Create instance of the RestServer
@@ -37,7 +35,7 @@ TM1637 tm1637(CLK,DIO);
 // it is important to define this array in its own method so that it will
 // be discarted from the Arduino's RAM after the registration.
 void register_rest_server() {
-	resource_description_t lightsensor = { "output_light", false, { 0, 1024 } };
+	resource_description_t lightsensor = { "output_light", false, { 0, 1023 } };
 	resource_description_t numberdisplay = { "input_numberdisplay", true, { 0, 9999 } };
 
 	resource_description_t resource_description[SERVICES_COUNT];
