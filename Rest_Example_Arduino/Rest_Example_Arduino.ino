@@ -8,6 +8,8 @@
 #define CLK 2 //pins definitions for TM1637 and can be changed to other ports       
 #define DIO 3
 
+#define CRLF "\r\n"
+
 #define SERVICES_COUNT	2
 
 // Index of services in "service_get_pins" array
